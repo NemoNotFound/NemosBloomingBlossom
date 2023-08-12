@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "blooming-blossom",
+	"version": "${version}",
+	"name": "Blooming Blossom",
+	"description": "Blooming Blossom brings the flowers to every spawning cherry blossom tree!",
+	"authors": [
+		"NemoNotFound"
+	],
+	"contact": {
+		"homepage": "https://nemonotfound.com/",
+		"sources": ""
+	},
+	"license": "",
+	"icon": "assets/blooming-blossom/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.nemonotfound.bloomingblossom.BloomingBlossomMod"
+		],
+		"client": [
+			"com.nemonotfound.bloomingblossom.BloomingBlossomClient"
+		],
+		"fabric-datagen": [
+			"com.nemonotfound.bloomingblossom.BloomingBlossomModDataGenerator"
+		]
+	},
+	"mixins": [
+		"blooming-blossom.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.22",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
