@@ -22,14 +22,12 @@ import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.treedecorator.AlterGroundTreeDecorator;
 import net.minecraft.world.gen.trunk.CherryTrunkPlacer;
 
-import static com.nemonotfound.bloomingblossom.BloomingBlossomMod.log;
-
 public class BloomingBlossomConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?,?>> EXTENDED_CHERRY = registerKey("extended_cherry");
     public static void bootstrap(Registerable<ConfiguredFeature<?,?>> context) {
-        log.info("ES KLAPPT");
-        ConfiguredFeatures.register(context, EXTENDED_CHERRY, Feature.TREE, createTreeFeatureConfig());
+        ConfiguredFeatures
+                .register(context, EXTENDED_CHERRY, Feature.TREE, createTreeFeatureConfig());
     }
 
     public static RegistryKey<ConfiguredFeature<?,?>> registerKey(String name) {
