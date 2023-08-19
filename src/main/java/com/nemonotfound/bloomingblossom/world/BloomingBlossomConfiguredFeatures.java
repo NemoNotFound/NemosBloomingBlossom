@@ -1,7 +1,6 @@
 package com.nemonotfound.bloomingblossom.world;
 
-import com.google.common.collect.ImmutableList;
-import com.nemonotfound.bloomingblossom.BloomingBlossomMod;
+import com.nemonotfound.bloomingblossom.world.tree.ExtendedCherryTreeDecorator;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -19,19 +18,23 @@ import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.CherryFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import net.minecraft.world.gen.treedecorator.AlterGroundTreeDecorator;
 import net.minecraft.world.gen.trunk.CherryTrunkPlacer;
+
+import java.util.Collections;
+
+import static com.nemonotfound.bloomingblossom.BloomingBlossomMod.MOD_ID;
 
 public class BloomingBlossomConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?,?>> EXTENDED_CHERRY = registerKey("extended_cherry");
+
     public static void bootstrap(Registerable<ConfiguredFeature<?,?>> context) {
         ConfiguredFeatures
                 .register(context, EXTENDED_CHERRY, Feature.TREE, createTreeFeatureConfig());
     }
 
     public static RegistryKey<ConfiguredFeature<?,?>> registerKey(String name) {
-        return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(BloomingBlossomMod.MOD_ID, name));
+        return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(MOD_ID, name));
     }
 
     private static TreeFeatureConfig createTreeFeatureConfig() {
@@ -63,7 +66,7 @@ public class BloomingBlossomConfiguredFeatures {
                 cherryFoliagePlacer,
                 new TwoLayersFeatureSize(1, 0, 2))
                 .ignoreVines()
-                .decorators(ImmutableList.of(new AlterGroundTreeDecorator(BlockStateProvider.of(Blocks.PINK_PETALS))))
+                .decorators(Collections.singletonList(ExtendedCherryTreeDecorator.INSTANCE))
                 .build();
     }
 }
