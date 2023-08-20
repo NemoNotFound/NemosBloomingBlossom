@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.CherryLeavesBlock;
 import net.minecraft.block.SaplingBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroups;
@@ -19,6 +20,8 @@ public class BloomingBlossomBlocks {
 
     public static final Block EXTENDED_CHERRY_SAPLING = registerBlock("extended_cherry_sapling",
             new SaplingBlock(new ExtendedCherrySaplingGenerator(), FabricBlockSettings.copyOf(Blocks.CHERRY_SAPLING)));
+    public static final Block EXTENDED_CHERRY_LEAVES = registerBlock("extended_cherry_leaves",
+            new CherryLeavesBlock(FabricBlockSettings.copyOf(Blocks.CHERRY_LEAVES).drops(new Identifier(BloomingBlossomMod.MOD_ID, "extended_cherry_sapling"))));
 
     private static Block registerBlock(String name, Block block) {
         Registry.register(Registries.ITEM, new Identifier(BloomingBlossomMod.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
@@ -31,5 +34,6 @@ public class BloomingBlossomBlocks {
 
     private static void addItemToItemGroup(FabricItemGroupEntries entries){
         entries.add(EXTENDED_CHERRY_SAPLING);
+        entries.add(EXTENDED_CHERRY_LEAVES);
     }
 }

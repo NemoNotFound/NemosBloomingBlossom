@@ -1,5 +1,6 @@
 package com.nemonotfound.bloomingblossom;
 
+import com.nemonotfound.bloomingblossom.datagen.BloomingBlossomLootTableProvider;
 import com.nemonotfound.bloomingblossom.datagen.BloomingBlossomModelProvider;
 import com.nemonotfound.bloomingblossom.datagen.CherryBlossomWorldGenerator;
 import com.nemonotfound.bloomingblossom.world.BloomingBlossomConfiguredFeatures;
@@ -15,6 +16,7 @@ public class BloomingBlossomModDataGenerator implements DataGeneratorEntrypoint 
 
 		pack.addProvider(BloomingBlossomModelProvider::new);
 		pack.addProvider(CherryBlossomWorldGenerator::new);
+		pack.addProvider(BloomingBlossomLootTableProvider::new);
 	}
 
 	@Override

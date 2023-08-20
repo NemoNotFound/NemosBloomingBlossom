@@ -17,6 +17,8 @@ public class BloomingBlossomModelProvider extends FabricModelProvider {
         blockStateModelGenerator
                 .registerTintableCross(BloomingBlossomBlocks.EXTENDED_CHERRY_SAPLING,
                         BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        blockStateModelGenerator.registerCubeAllModelTexturePool(BloomingBlossomBlocks.EXTENDED_CHERRY_LEAVES);
     }
 
     @Override

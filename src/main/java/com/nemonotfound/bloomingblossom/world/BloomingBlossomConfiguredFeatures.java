@@ -1,5 +1,6 @@
 package com.nemonotfound.bloomingblossom.world;
 
+import com.nemonotfound.bloomingblossom.blocks.BloomingBlossomBlocks;
 import com.nemonotfound.bloomingblossom.world.tree.ExtendedCherryTreeDecorator;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
@@ -62,7 +63,7 @@ public class BloomingBlossomConfiguredFeatures {
 
         return new TreeFeatureConfig.Builder(BlockStateProvider.of(Blocks.CHERRY_LOG),
                 cherryTrunkPlacer,
-                BlockStateProvider.of(Blocks.CHERRY_LEAVES),
+                BlockStateProvider.of(BloomingBlossomBlocks.EXTENDED_CHERRY_LEAVES),
                 cherryFoliagePlacer,
                 new TwoLayersFeatureSize(1, 0, 2))
                 .ignoreVines()
