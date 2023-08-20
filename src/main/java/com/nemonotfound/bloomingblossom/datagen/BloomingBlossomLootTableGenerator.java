@@ -4,9 +4,9 @@ import com.nemonotfound.bloomingblossom.blocks.BloomingBlossomBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 
-public class BloomingBlossomLootTableProvider extends FabricBlockLootTableProvider {
+public class BloomingBlossomLootTableGenerator extends FabricBlockLootTableProvider {
 
-    public BloomingBlossomLootTableProvider(FabricDataOutput dataOutput) {
+    public BloomingBlossomLootTableGenerator(FabricDataOutput dataOutput) {
         super(dataOutput);
     }
 
