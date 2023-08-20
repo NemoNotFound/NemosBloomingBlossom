@@ -27,14 +27,14 @@ import static com.nemonotfound.bloomingblossom.BloomingBlossomMod.MOD_ID;
 
 public class BloomingBlossomConfiguredFeatures {
 
-    public static final RegistryKey<ConfiguredFeature<?,?>> EXTENDED_CHERRY = registerKey("extended_cherry");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> EXTENDED_CHERRY = registerKey("extended_cherry");
 
-    public static void bootstrap(Registerable<ConfiguredFeature<?,?>> context) {
+    public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         ConfiguredFeatures
                 .register(context, EXTENDED_CHERRY, Feature.TREE, createTreeFeatureConfig());
     }
 
-    public static RegistryKey<ConfiguredFeature<?,?>> registerKey(String name) {
+    public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
         return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(MOD_ID, name));
     }
 

@@ -9,10 +9,11 @@ import net.minecraft.client.render.RenderLayer;
 
 @Environment(EnvType.CLIENT)
 public class BloomingBlossomClient implements ClientModInitializer {
-	@Override
-	public void onInitializeClient() {
-		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
-		BlockRenderLayerMap.INSTANCE.putBlock(BloomingBlossomBlocks.EXTENDED_CHERRY_SAPLING, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(BloomingBlossomBlocks.EXTENDED_CHERRY_LEAVES, RenderLayer.getCutout());
-	}
+    @Override
+    public void onInitializeClient() {
+        // This entrypoint is suitable for setting up client-specific logic, such as rendering.
+        BlockRenderLayerMap.INSTANCE.putBlock(BloomingBlossomBlocks.EXTENDED_CHERRY_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BloomingBlossomBlocks.EXTENDED_CHERRY_LEAVES, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BloomingBlossomBlocks.EXTENDED_CHERRY_SAPLING_POT, RenderLayer.getCutout());
+    }
 }

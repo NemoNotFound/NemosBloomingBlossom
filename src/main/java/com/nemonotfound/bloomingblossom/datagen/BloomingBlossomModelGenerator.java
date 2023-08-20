@@ -14,11 +14,9 @@ public class BloomingBlossomModelGenerator extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator
-                .registerTintableCross(BloomingBlossomBlocks.EXTENDED_CHERRY_SAPLING,
-                        BlockStateModelGenerator.TintType.NOT_TINTED);
-
         blockStateModelGenerator.registerCubeAllModelTexturePool(BloomingBlossomBlocks.EXTENDED_CHERRY_LEAVES);
+        blockStateModelGenerator.registerFlowerPotPlant(BloomingBlossomBlocks.EXTENDED_CHERRY_SAPLING,
+                BloomingBlossomBlocks.EXTENDED_CHERRY_SAPLING_POT, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
     @Override

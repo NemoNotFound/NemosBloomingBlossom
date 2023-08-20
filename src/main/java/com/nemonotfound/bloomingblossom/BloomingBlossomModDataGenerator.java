@@ -11,18 +11,18 @@ import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 
 public class BloomingBlossomModDataGenerator implements DataGeneratorEntrypoint {
-	@Override
-	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
+    @Override
+    public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
+        FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
-		pack.addProvider(BloomingBlossomModelGenerator::new);
-		pack.addProvider(CherryBlossomWorldGenerator::new);
-		pack.addProvider(BloomingBlossomLootTableGenerator::new);
-		pack.addProvider(BloomingBlossomRecipeGenerator::new);
-	}
+        pack.addProvider(BloomingBlossomModelGenerator::new);
+        pack.addProvider(CherryBlossomWorldGenerator::new);
+        pack.addProvider(BloomingBlossomLootTableGenerator::new);
+        pack.addProvider(BloomingBlossomRecipeGenerator::new);
+    }
 
-	@Override
-	public void buildRegistry(RegistryBuilder registryBuilder) {
-		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, BloomingBlossomConfiguredFeatures::bootstrap);
-	}
+    @Override
+    public void buildRegistry(RegistryBuilder registryBuilder) {
+        registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, BloomingBlossomConfiguredFeatures::bootstrap);
+    }
 }

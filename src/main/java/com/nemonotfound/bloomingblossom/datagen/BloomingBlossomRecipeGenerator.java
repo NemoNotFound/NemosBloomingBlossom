@@ -24,7 +24,7 @@ public class BloomingBlossomRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(BloomingBlossomBlocks.EXTENDED_CHERRY_SAPLING),
                         FabricRecipeProvider.conditionsFromItem(BloomingBlossomBlocks.EXTENDED_CHERRY_SAPLING))
                 .criterion(FabricRecipeProvider.hasItem(CHERRY_SAPLING),
-                FabricRecipeProvider.conditionsFromItem(CHERRY_SAPLING))
+                        FabricRecipeProvider.conditionsFromItem(CHERRY_SAPLING))
                 .offerTo(exporter);
     }
 }
