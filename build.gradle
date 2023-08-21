@@ -19,6 +19,7 @@ repositories {
 }
 
 loom {
+	accessWidenerPath = file("src/main/resources/blooming-blossom.accessWidener")
 	runs {
 		// This adds a new gradle task that runs the datagen API: "gradlew runDatagen"
 		datagen {

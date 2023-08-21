@@ -2,7 +2,6 @@ package com.nemonotfound.bloomingblossom;
 
 import com.nemonotfound.bloomingblossom.blocks.BloomingBlossomBlocks;
 import com.nemonotfound.bloomingblossom.blocks.BloomingBlossomFlammableRegistry;
-import com.nemonotfound.bloomingblossom.mixin.BloomingBlossomMixin;
 import com.nemonotfound.bloomingblossom.world.tree.ExtendedCherryTreeDecorator;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
@@ -14,7 +13,7 @@ public class BloomingBlossomMod implements ModInitializer {
     public static final String MOD_ID = "blooming-blossom";
     public static final Logger log = LoggerFactory.getLogger(MOD_ID);
     public static final TreeDecoratorType<ExtendedCherryTreeDecorator> EXTENDED_CHERRY_DECORATOR =
-            BloomingBlossomMixin.callRegister(MOD_ID + ":extended_cherry_decorator", ExtendedCherryTreeDecorator.CODEC);
+            TreeDecoratorType.register(MOD_ID + ":extended_cherry_decorator", ExtendedCherryTreeDecorator.CODEC);
 
     @Override
     public void onInitialize() {
