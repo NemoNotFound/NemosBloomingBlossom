@@ -3,6 +3,9 @@ package com.nemonotfound.bloomingblossom.world.tree;
 import com.mojang.serialization.Codec;
 import com.nemonotfound.bloomingblossom.BloomingBlossomMod;
 import net.minecraft.block.Blocks;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.treedecorator.TreeDecorator;
@@ -17,13 +20,14 @@ public class ExtendedCherryTreeDecorator extends TreeDecorator {
 
     public static final ExtendedCherryTreeDecorator INSTANCE = new ExtendedCherryTreeDecorator();
     public static final Codec<ExtendedCherryTreeDecorator> CODEC = Codec.unit(() -> INSTANCE);
+    private static final TreeDecoratorType<ExtendedCherryTreeDecorator> EXTENDED_CHERRY_DECORATOR = new TreeDecoratorType<>(CODEC);
 
     private ExtendedCherryTreeDecorator() {
     }
 
     @Override
     protected TreeDecoratorType<?> getType() {
-        return BloomingBlossomMod.EXTENDED_CHERRY_DECORATOR;
+        return EXTENDED_CHERRY_DECORATOR;
     }
 
     @Override
@@ -32,6 +36,10 @@ public class ExtendedCherryTreeDecorator extends TreeDecorator {
         generateRandomFLowers(generator, logPosition, 80, 0, 2);
         generateRandomFLowers(generator, logPosition, 50, 2, 4);
         generateRandomFLowers(generator, logPosition, 40, 4, 5);
+    }
+
+    public static void register() {
+        Registry.register(Registries.TREE_DECORATOR_TYPE, new Identifier(BloomingBlossomMod.MOD_ID, "extended_cherry_decorator"), EXTENDED_CHERRY_DECORATOR);
     }
 
     private void generateRandomFLowers(Generator generator, BlockPos logPosition, int probability, int from, int to) {
