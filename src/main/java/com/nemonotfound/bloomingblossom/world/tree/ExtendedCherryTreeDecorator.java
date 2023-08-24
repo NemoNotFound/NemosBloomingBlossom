@@ -22,7 +22,7 @@ public class ExtendedCherryTreeDecorator extends TreeDecorator {
     public static final Codec<ExtendedCherryTreeDecorator> CODEC = Codec.unit(() -> INSTANCE);
     private static final TreeDecoratorType<ExtendedCherryTreeDecorator> EXTENDED_CHERRY_DECORATOR = new TreeDecoratorType<>(CODEC);
 
-    private ExtendedCherryTreeDecorator() {
+    public ExtendedCherryTreeDecorator() {
     }
 
     @Override
