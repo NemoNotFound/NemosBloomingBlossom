@@ -16,13 +16,13 @@ import java.util.Random;
 import static com.nemonotfound.bloomingblossom.BloomingBlossomMod.log;
 import static net.minecraft.state.property.Properties.FLOWER_AMOUNT;
 
-public class ExtendedCherryTreeDecorator extends TreeDecorator {
+public class CherryTreeDecorator extends TreeDecorator {
 
-    public static final ExtendedCherryTreeDecorator INSTANCE = new ExtendedCherryTreeDecorator();
-    public static final Codec<ExtendedCherryTreeDecorator> CODEC = Codec.unit(() -> INSTANCE);
-    private static final TreeDecoratorType<ExtendedCherryTreeDecorator> EXTENDED_CHERRY_DECORATOR = new TreeDecoratorType<>(CODEC);
+    public static final CherryTreeDecorator INSTANCE = new CherryTreeDecorator();
+    public static final Codec<CherryTreeDecorator> CODEC = Codec.unit(() -> INSTANCE);
+    private static final TreeDecoratorType<CherryTreeDecorator> EXTENDED_CHERRY_DECORATOR = new TreeDecoratorType<>(CODEC);
 
-    public ExtendedCherryTreeDecorator() {
+    public CherryTreeDecorator() {
     }
 
     @Override
