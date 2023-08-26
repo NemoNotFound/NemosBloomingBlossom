@@ -20,14 +20,8 @@
 		],
 		"client": [
 			"com.nemonotfound.bloomingblossom.BloomingBlossomClient"
-		],
-		"fabric-datagen": [
-			"com.nemonotfound.bloomingblossom.BloomingBlossomModDataGenerator"
 		]
 	},
-	"mixins": [
-		"blooming-blossom.mixins.json"
-	],
 	"depends": {
 		"fabricloader": ">=0.14.22",
 		"minecraft": "~1.20.1",

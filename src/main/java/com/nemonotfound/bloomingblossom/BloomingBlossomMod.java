@@ -1,7 +1,5 @@
 package com.nemonotfound.bloomingblossom;
 
-import com.nemonotfound.bloomingblossom.blocks.BloomingBlossomBlocks;
-import com.nemonotfound.bloomingblossom.blocks.BloomingBlossomFlammableRegistry;
 import com.nemonotfound.bloomingblossom.world.tree.ExtendedCherryTreeDecorator;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -19,8 +17,6 @@ public class BloomingBlossomMod implements ModInitializer {
         // Proceed with mild caution.
 
         log.info("Thank you for using Blooming Blossom!");
-        BloomingBlossomBlocks.registerItemBlock();
-        BloomingBlossomFlammableRegistry.registerFlammableBlocks();
         ExtendedCherryTreeDecorator.register();
     }
 }
