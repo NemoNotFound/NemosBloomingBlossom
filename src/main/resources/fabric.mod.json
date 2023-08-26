@@ -12,7 +12,6 @@
 		"sources": ""
 	},
 	"license": "",
-	"icon": "assets/blooming-blossom/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
