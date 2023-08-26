@@ -1,4 +1,4 @@
-package com.nemonotfound.bloomingblossom.world.tree;
+package com.nemonotfound.bloomingblossom.world.gen.treedecorator;
 
 import com.mojang.serialization.Codec;
 import com.nemonotfound.bloomingblossom.BloomingBlossomMod;

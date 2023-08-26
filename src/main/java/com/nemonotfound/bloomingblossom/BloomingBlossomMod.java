@@ -1,6 +1,6 @@
 package com.nemonotfound.bloomingblossom;
 
-import com.nemonotfound.bloomingblossom.world.tree.CherryTreeDecorator;
+import com.nemonotfound.bloomingblossom.world.gen.treedecorator.CherryTreeDecorator;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
