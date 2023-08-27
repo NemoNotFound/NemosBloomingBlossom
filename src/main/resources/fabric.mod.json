@@ -11,7 +11,7 @@
 		"homepage": "https://nemonotfound.com/",
 		"sources": ""
 	},
-	"license": "",
+	"license": "MIT",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
