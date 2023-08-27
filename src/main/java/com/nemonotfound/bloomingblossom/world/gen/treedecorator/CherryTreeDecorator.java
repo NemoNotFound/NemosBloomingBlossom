@@ -13,7 +13,6 @@ import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 
 import java.util.Random;
 
-import static com.nemonotfound.bloomingblossom.BloomingBlossomMod.log;
 import static net.minecraft.state.property.Properties.FLOWER_AMOUNT;
 
 public class CherryTreeDecorator extends TreeDecorator {
