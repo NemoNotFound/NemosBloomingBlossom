@@ -90,10 +90,6 @@ public class CherryTreeDecorator extends TreeDecorator {
         BlockPos petalGroundPosition = petalPosition.down();
         boolean isGroundSoil = Feature.isSoil(generator.getWorld(), petalGroundPosition);
         boolean isPetalPositionAir = generator.isAir(petalPosition);
-        log.info(String.format("The block at x: %s y: %s z: %s is soil: %s", petalGroundPosition.getX(),
-                petalGroundPosition.getY(), petalGroundPosition.getZ(), isGroundSoil));
-        log.info(String.format("The block at x: %s y: %s z: %s is air: %s", petalPosition.getX(),
-                petalPosition.getY(), petalPosition.getZ(), isPetalPositionAir));
 
         return isGroundSoil && isPetalPositionAir;
     }
