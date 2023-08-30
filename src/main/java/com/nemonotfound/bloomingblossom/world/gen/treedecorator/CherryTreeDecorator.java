@@ -67,8 +67,8 @@ public class CherryTreeDecorator extends TreeDecorator {
     }
 
     private void putFlowers(Generator generator, BlockPos petalPosition, Random random) {
-        for (int i = 0; i < 3; i++) {
-            if (isPetalPlantable(generator, petalPosition.down(i))) {
+        for (int i = 0; i < 6; i++) {
+            if (isPetalPlantable(generator, petalPosition.down(i - 3))) {
                 int randomNumber = random.nextInt(100 - 1 + 1) + 1;
                 int petalCount = 1;
 
