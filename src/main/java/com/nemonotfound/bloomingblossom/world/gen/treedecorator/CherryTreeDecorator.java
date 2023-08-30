@@ -62,26 +62,31 @@ public class CherryTreeDecorator extends TreeDecorator {
     private void generateFlowersByProbability(Random random, int probability, Generator generator, BlockPos logPosition, int i, int j) {
         int randomNumber = random.nextInt(100 - 1 + 1) + 1;
         if (randomNumber < probability) {
-            putFlowers(generator, logPosition.north(i).east(j).up(), random);
+            putFlowersUpAndDown(generator, logPosition.north(i).east(j).up(), random);
+        }
+    }
+
+    private void putFlowersUpAndDown(Generator generator, BlockPos petalPosition, Random random) {
+        for (int i = 0; i < 3; i++) {
+            putFlowers(generator, petalPosition.up(i), random);
+            putFlowers(generator, petalPosition.down(i), random);
         }
     }
 
     private void putFlowers(Generator generator, BlockPos petalPosition, Random random) {
-        for (int i = 0; i < 6; i++) {
-            if (isPetalPlantable(generator, petalPosition.down(i - 3))) {
-                int randomNumber = random.nextInt(100 - 1 + 1) + 1;
-                int petalCount = 1;
+        if (isPetalPlantable(generator, petalPosition)) {
+            int randomNumber = random.nextInt(100 - 1 + 1) + 1;
+            int petalCount = 1;
 
-                if (randomNumber < 10) {
-                    petalCount = 4;
-                } else if (10 < randomNumber && randomNumber < 20) {
-                    petalCount = 3;
-                } else if (20 < randomNumber && randomNumber < 50) {
-                    petalCount = 2;
-                }
-
-                generator.replace(petalPosition.down(i), Blocks.PINK_PETALS.getDefaultState().with(FLOWER_AMOUNT, petalCount));
+            if (randomNumber < 10) {
+                petalCount = 4;
+            } else if (10 < randomNumber && randomNumber < 20) {
+                petalCount = 3;
+            } else if (20 < randomNumber && randomNumber < 50) {
+                petalCount = 2;
             }
+
+            generator.replace(petalPosition, Blocks.PINK_PETALS.getDefaultState().with(FLOWER_AMOUNT, petalCount));
         }
     }
 
