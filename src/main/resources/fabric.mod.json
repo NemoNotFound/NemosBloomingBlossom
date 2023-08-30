@@ -29,5 +29,6 @@
 	},
 	"suggests": {
 		"another-mod": "*"
-	}
+	},
+	"accessWidener" : "blooming-blossom.accesswidener"
 }
