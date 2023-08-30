@@ -7,7 +7,7 @@
         "probability": 0.05
       },
       {
-        "type": "blooming-blossom:extended_cherry_decorator"
+        "type": "blooming-blossom:cherry_tree_decorator"
       }
     ],
     "dirt_provider": {

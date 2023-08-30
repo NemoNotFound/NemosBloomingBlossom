@@ -19,14 +19,14 @@ public class CherryTreeDecorator extends TreeDecorator {
 
     public static final CherryTreeDecorator INSTANCE = new CherryTreeDecorator();
     public static final Codec<CherryTreeDecorator> CODEC = Codec.unit(() -> INSTANCE);
-    private static final TreeDecoratorType<CherryTreeDecorator> EXTENDED_CHERRY_DECORATOR = new TreeDecoratorType<>(CODEC);
+    private static final TreeDecoratorType<CherryTreeDecorator> CHERRY_TREE_DECORATOR = new TreeDecoratorType<>(CODEC);
 
     public CherryTreeDecorator() {
     }
 
     @Override
     protected TreeDecoratorType<?> getType() {
-        return EXTENDED_CHERRY_DECORATOR;
+        return CHERRY_TREE_DECORATOR;
     }
 
     @Override
@@ -38,7 +38,7 @@ public class CherryTreeDecorator extends TreeDecorator {
     }
 
     public static void register() {
-        Registry.register(Registries.TREE_DECORATOR_TYPE, new Identifier(BloomingBlossomMod.MOD_ID, "extended_cherry_decorator"), EXTENDED_CHERRY_DECORATOR);
+        Registry.register(Registries.TREE_DECORATOR_TYPE, new Identifier(BloomingBlossomMod.MOD_ID, "cherry_tree_decorator"), CHERRY_TREE_DECORATOR);
     }
 
     private void generateRandomFLowers(Generator generator, BlockPos logPosition, int probability, int from, int to) {
