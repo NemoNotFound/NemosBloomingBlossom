@@ -16,14 +16,11 @@
 	"entrypoints": {
 		"main": [
 			"com.nemonotfound.bloomingblossom.BloomingBlossomMod"
-		],
-		"client": [
-			"com.nemonotfound.bloomingblossom.BloomingBlossomClient"
 		]
 	},
 	"depends": {
 		"fabricloader": ">=0.14.22",
-		"minecraft": "~1.20.1",
+		"minecraft": "~1.20.2",
 		"java": ">=17",
 		"fabric-api": "*"
 	},
