@@ -19,7 +19,7 @@ repositories {
 }
 
 loom {
-	accessWidenerPath = file("src/main/resources/blooming-blossom.accesswidener")
+	accessWidenerPath = file("src/main/resources/nemos-blooming-blossom.accesswidener")
 }
 
 loom {
