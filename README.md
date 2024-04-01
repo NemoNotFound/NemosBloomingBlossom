@@ -1,13 +1,18 @@
+# Nemo's Blooming Blossom
+
+Nemo's Blooming Blossom generates pink petals around cherry trees when they grow and generates more pink petals, when using bone meal on grass.
+
+I love to create mods for Minecraft, so I hope you like what I do.
+Either way feel free to give me your feedback and suggestions, either in the comments or on my [Discord](https://discord.com/invite/yxs9dga) :)
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/J3J5UXAPK)
+
 ## Features
-With Blooming Blossom you can spread the cherry blossom biome even easier now! 
-Pink petals now generate randomly around the cherry blossom tree when growing, so you don't need to place them manually! Bone meal now also generates more pink petals
+- Pink petals generate around cherry trees when they grow
+- Bone meal on grass generates more pink petals
 
 ## Requirement
 To use this mod, you have to add the Fabric API too
-
-## Misc
-You can add Blooming Blossom to your own modpack, I'd be happy about it!
-I appreciate any constructive feedback, so leave your thoughts in the comments! :)
 
 <br></br>
 If you need a Minecraft Server, go check out Kinetic Hosting and save 15% for your first month with the code "Nemo"! Just click here on the banner!
