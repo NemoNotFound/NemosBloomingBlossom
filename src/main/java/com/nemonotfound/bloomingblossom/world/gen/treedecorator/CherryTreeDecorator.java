@@ -1,7 +1,6 @@
 package com.nemonotfound.bloomingblossom.world.gen.treedecorator;
 
 import com.mojang.serialization.Codec;
-import com.nemonotfound.bloomingblossom.BloomingBlossomMod;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -13,6 +12,7 @@ import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 
 import java.util.Random;
 
+import static com.nemonotfound.bloomingblossom.NemosBloomingBlossom.MOD_ID;
 import static net.minecraft.state.property.Properties.FLOWER_AMOUNT;
 
 public class CherryTreeDecorator extends TreeDecorator {
@@ -38,7 +38,7 @@ public class CherryTreeDecorator extends TreeDecorator {
     }
 
     public static void register() {
-        Registry.register(Registries.TREE_DECORATOR_TYPE, new Identifier(BloomingBlossomMod.MOD_ID, "cherry_tree_decorator"), CHERRY_TREE_DECORATOR);
+        Registry.register(Registries.TREE_DECORATOR_TYPE, new Identifier(MOD_ID, "cherry_tree_decorator"), CHERRY_TREE_DECORATOR);
     }
 
     private void generateRandomFLowers(Generator generator, BlockPos logPosition, int probability, int from, int to) {

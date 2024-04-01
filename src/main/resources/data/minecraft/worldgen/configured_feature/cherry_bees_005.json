@@ -7,7 +7,7 @@
         "probability": 0.05
       },
       {
-        "type": "blooming-blossom:cherry_tree_decorator"
+        "type": "nemos-blooming-blossom:cherry_tree_decorator"
       }
     ],
     "dirt_provider": {
