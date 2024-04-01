@@ -1,21 +1,21 @@
 {
 	"schemaVersion": 1,
-	"id": "blooming-blossom",
+	"id": "nemos-blooming-blossom",
 	"version": "${version}",
-	"name": "Blooming Blossom",
-	"description": "Blooming Blossom brings the flowers to every spawning cherry blossom tree!",
+	"name": "Nemo's Blooming Blossom",
+	"description": "Generate more pink petals when using bone meal on grass and when cherry trees grow!",
 	"authors": [
 		"NemoNotFound"
 	],
 	"contact": {
 		"homepage": "https://nemonotfound.com/",
-		"sources": ""
+        "sources": "https://github.com/NemoNotFound/NemosBloomingBlossom"
 	},
 	"license": "MIT",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.nemonotfound.bloomingblossom.BloomingBlossomMod"
+			"com.nemonotfound.bloomingblossom.NemosBloomingBlossom"
 		]
 	},
 	"depends": {
@@ -28,7 +28,7 @@
 		"another-mod": "*"
 	},
 	"mixins": [
-		"blooming-blossom.mixins.json"
+		"nemos-blooming-blossom.mixins.json"
 	],
-	"accessWidener": "blooming-blossom.accesswidener"
+	"accessWidener": "nemos-blooming-blossom.accesswidener"
 }
