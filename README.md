@@ -10,6 +10,7 @@ Either way feel free to give me your feedback and suggestions, either in the com
 ## Features
 - Pink petals generate around cherry trees when they grow
 - Bone meal on grass generates more pink petals
+- Bone meal on flowers grows more flowers of this type (except wither roses)
 
 ## Requirement
 To use this mod, you have to add the Fabric API too
