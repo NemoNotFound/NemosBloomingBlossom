@@ -1,8 +1,8 @@
-# Changelog v1.1.1
+# Changelog v1.2.0
 
 ## Changes
-- Changed icon
-- Changed mod id
+- You can now bone meal flowers to get more flowers of this type (except wither roses)
+- Updated the mod icon
 
 ### Downloads
 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/nemos-blooming-blossom) <br>
