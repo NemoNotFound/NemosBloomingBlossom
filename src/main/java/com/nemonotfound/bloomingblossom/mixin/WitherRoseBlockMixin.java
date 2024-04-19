@@ -13,9 +13,8 @@ import org.spongepowered.asm.mixin.Mixin;
 @Mixin(WitherRoseBlock.class)
 public class WitherRoseBlockMixin implements Fertilizable {
 
-
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
         return false;
     }
 
