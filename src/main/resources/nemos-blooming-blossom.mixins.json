@@ -3,7 +3,9 @@
 	"package": "com.nemonotfound.bloomingblossom.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"GrassBlockMixin"
+		"FlowerBlockMixin",
+		"GrassBlockMixin",
+		"WitherRoseBlockMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
