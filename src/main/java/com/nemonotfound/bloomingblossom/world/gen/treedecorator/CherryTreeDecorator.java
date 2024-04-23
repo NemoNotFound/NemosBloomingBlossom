@@ -1,6 +1,6 @@
 package com.nemonotfound.bloomingblossom.world.gen.treedecorator;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -18,7 +18,7 @@ import static net.minecraft.state.property.Properties.FLOWER_AMOUNT;
 public class CherryTreeDecorator extends TreeDecorator {
 
     public static final CherryTreeDecorator INSTANCE = new CherryTreeDecorator();
-    public static final Codec<CherryTreeDecorator> CODEC = Codec.unit(() -> INSTANCE);
+    public static final MapCodec<CherryTreeDecorator> CODEC = MapCodec.unit(() -> INSTANCE);
     private static final TreeDecoratorType<CherryTreeDecorator> CHERRY_TREE_DECORATOR = new TreeDecoratorType<>(CODEC);
 
     public CherryTreeDecorator() {
