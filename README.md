@@ -2,7 +2,7 @@
 
 Nemo's Blooming Blossom generates pink petals around cherry trees when they grow and generates more pink petals, when using bone meal on grass.
 
-I love to create mods for Minecraft, so I hope you like what I do.
+I love to create mods for Minecraft and wish to live off it one day, so I hope you like what I do.
 Either way feel free to give me your feedback and suggestions, either in the comments or on my [Discord](https://discord.com/invite/yxs9dga) :)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/J3J5UXAPK)
