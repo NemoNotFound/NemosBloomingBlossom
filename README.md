@@ -1,20 +1,35 @@
-# Nemo's Blooming Blossom
+![Nemo's Blooming Blossom](https://github.com/NemoNotFound/NemosBloomingBlossom/blob/master/src/main/resources/assets/nemos-blooming-blossom/title.png?raw=true)
+<br><br>
 
-Nemo's Blooming Blossom generates pink petals around cherry trees when they grow and generates more pink petals, when using bone meal on grass.
+<p align="center">
+  Nemo's Blooming Blossom generates pink petals around cherry trees when <br>
+  they grow and generates more pink petals, when using bone meal on grass. <br><br>
+  I love to create mods for Minecraft and wish to live off it one day, so I hope you like what I do.
+  Either way feel free to give me your feedback and suggestions, either in the comments or on my <a href="https://discord.com/invite/yxs9dga">Discord</a> :) 
+  <br><br>
+  For more information check the <a href="https://www.nemonotfound.com/minecraft-mods/nemos-blooming-blossom">wiki</a>.
+</p>
 
-I love to create mods for Minecraft and wish to live off it one day, so I hope you like what I do.
-Either way feel free to give me your feedback and suggestions, either in the comments or on my [Discord](https://discord.com/invite/yxs9dga) :)
+<br>
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/J3J5UXAPK)
+<div align="center">
+  <a href="https://ko-fi.com/J3J5UXAPK">
+    <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="ko-fi donation">
+  </a>
+</div>
 
-## Features
-- Pink petals generate around cherry trees when they grow
-- Bone meal on grass generates more pink petals
-- Bone meal on flowers grows more flowers of this type (except wither roses)
+<br>
 
-## Requirement
-To use this mod, you have to add the Fabric API too
+<h2 align="center">Downloads</h2>
+<p align="center">
+  <a href="https://curseforge.com/minecraft/mc-mods/nemos-blooming-blossom">CurseForge</a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="https://modrinth.com/mod/nemos-blooming-blossom">Modrinth</a>
+</p>
 
-<br></br>
-If you need a Minecraft Server, go check out Kinetic Hosting and save 15% for your first month with the code "Nemo"! Just click here on the banner!
-[![](https://imgur.com/lguE51t.png)](https://billing.kinetichosting.net/aff.php?aff=679)
+<br>
+
+<p align="center">
+  If you need a Minecraft Server, go check out Kinetic Hosting and save 15% for your first month with the code "Nemo"! Just click here on the banner! <br>
+  <a href="https://billing.kinetichosting.net/aff.php?aff=679">
+    <img src="https://imgur.com/lguE51t.png" alt="Kinetic Hosting Minecraft Server">
+  </a>
+</p>
