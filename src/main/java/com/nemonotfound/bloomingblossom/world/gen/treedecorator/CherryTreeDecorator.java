@@ -38,7 +38,7 @@ public class CherryTreeDecorator extends TreeDecorator {
     }
 
     public static void register() {
-        Registry.register(Registries.TREE_DECORATOR_TYPE, new Identifier(MOD_ID, "cherry_tree_decorator"), CHERRY_TREE_DECORATOR);
+        Registry.register(Registries.TREE_DECORATOR_TYPE, Identifier.of(MOD_ID, "cherry_tree_decorator"), CHERRY_TREE_DECORATOR);
     }
 
     private void generateRandomFLowers(Generator generator, BlockPos logPosition, int probability, int from, int to) {
