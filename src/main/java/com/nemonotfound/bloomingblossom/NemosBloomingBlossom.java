@@ -1,6 +1,6 @@
 package com.nemonotfound.bloomingblossom;
 
-import com.nemonotfound.bloomingblossom.world.gen.treedecorator.CherryTreeDecorator;
+import com.nemonotfound.bloomingblossom.world.gen.treedecorator.ModTreeDecoratorType;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +13,7 @@ public class NemosBloomingBlossom implements ModInitializer {
     @Override
     public void onInitialize() {
         log.info("Thank you for using Nemo's Blooming Blossom!");
-        CherryTreeDecorator.register();
+
+        ModTreeDecoratorType.registerTreeDecoratorTypes();
     }
 }

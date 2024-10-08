@@ -5,6 +5,8 @@
 Nemo's Blooming Blossom generates pink petals around cherry trees when <br>
 they grow and generates more pink petals, when using bone meal on grass. <br>
 
+Also, it generates leaves around oak, birch & dark oak trees!
+
 [![Join my Discord](https://github.com/NemoNotFound/NemoNotFound/blob/master/resources/svg/join_discord_button.svg?raw=true)](https://discord.com/invite/yxs9dga)
 <br>
 <br>

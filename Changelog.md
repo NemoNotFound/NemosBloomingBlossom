@@ -1,8 +1,7 @@
-# Changelog v1.2.0
+# Changelog v1.3
 
 ## Changes
-- You can now bone meal flowers to get more flowers of this type (except wither roses)
-- Updated the mod icon
+- Fallen leaves now generate around oak, dark oak and birch trees
 
 ### Downloads
 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/nemos-blooming-blossom) <br>
