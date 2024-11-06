@@ -32,6 +32,5 @@
 	},
 	"mixins": [
 		"nemos-blooming-blossom.mixins.json"
-	],
-	"accessWidener": "nemos-blooming-blossom.accesswidener"
+	]
 }

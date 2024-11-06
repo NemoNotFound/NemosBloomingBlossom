@@ -1,14 +1,15 @@
 package com.nemonotfound.bloomingblossom.world.gen.treedecorator;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.block.Block;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.TestableWorld;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.treedecorator.TreeDecorator;
-import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
@@ -18,17 +19,17 @@ public class FallenLeavesTreeDecorator extends TreeDecorator {
     public static final MapCodec<FallenLeavesTreeDecorator> CODEC = MapCodec.unit(() -> INSTANCE);
 
     @Override
-    protected TreeDecoratorType<?> getType() {
+    protected @NotNull TreeDecoratorType<?> type() {
         return ModTreeDecoratorType.FALLEN_LEAVES_TREE_DECORATOR;
     }
 
     @Override
-    public void generate(Generator generator) {
-        BlockPos logPosition = generator.getLogPositions().get(0);
-        generateRandomLeavesBlock(generator, logPosition);
+    public void place(Context context) {
+        BlockPos logPosition = context.logs().get(0);
+        generateRandomLeavesBlock(context, logPosition);
     }
 
-    private void generateRandomLeavesBlock(Generator generator, BlockPos logPosition) {
+    private void generateRandomLeavesBlock(Context context, BlockPos logPosition) {
         Random random = new Random();
         int probability = 3;
         int from = 0;
@@ -37,51 +38,51 @@ public class FallenLeavesTreeDecorator extends TreeDecorator {
         for (int i = from; i < to; i++) {
             for (int j = from; j < to; j++) {
                 //TODO: I have no idea why I did this, please refactor
-                generateFallenLeavesByProbability(random, probability, generator, logPosition, to - i + from, j + 1);
-                generateFallenLeavesByProbability(random, probability, generator, logPosition, to - i + from, -j - 1);
-                generateFallenLeavesByProbability(random, probability, generator, logPosition, -to + i - from, j + 1);
-                generateFallenLeavesByProbability(random, probability, generator, logPosition, -to + i - from, -j - 1);
+                generateFallenLeavesByProbability(random, probability, context, logPosition, to - i + from, j + 1);
+                generateFallenLeavesByProbability(random, probability, context, logPosition, to - i + from, -j - 1);
+                generateFallenLeavesByProbability(random, probability, context, logPosition, -to + i - from, j + 1);
+                generateFallenLeavesByProbability(random, probability, context, logPosition, -to + i - from, -j - 1);
 
-                generateFallenLeavesByProbability(random, probability, generator, logPosition, i + 1, 0);
-                generateFallenLeavesByProbability(random, probability, generator, logPosition, -i - 1, 0);
-                generateFallenLeavesByProbability(random, probability, generator, logPosition, 0, i + 1);
-                generateFallenLeavesByProbability(random, probability, generator, logPosition, 0, i - 1);
+                generateFallenLeavesByProbability(random, probability, context, logPosition, i + 1, 0);
+                generateFallenLeavesByProbability(random, probability, context, logPosition, -i - 1, 0);
+                generateFallenLeavesByProbability(random, probability, context, logPosition, 0, i + 1);
+                generateFallenLeavesByProbability(random, probability, context, logPosition, 0, i - 1);
             }
         }
     }
 
-    private void generateFallenLeavesByProbability(Random random, int probability, Generator generator, BlockPos logPosition, int i, int j) {
+    private void generateFallenLeavesByProbability(Random random, int probability, Context context, BlockPos logPosition, int i, int j) {
         int randomNumber = random.nextInt(100 - 1 + 1) + 1;
         if (randomNumber < probability) {
-            placeFallenLeavesBlockUpAndDown(generator, logPosition.north(i).east(j).up());
+            placeFallenLeavesBlockUpAndDown(context, logPosition.north(i).east(j).above());
         }
     }
 
-    private void placeFallenLeavesBlockUpAndDown(Generator generator, BlockPos petalPosition) {
+    private void placeFallenLeavesBlockUpAndDown(Context context, BlockPos petalPosition) {
         for (int i = 0; i < 3; i++) {
-            placeFallenLeavesBlock(generator, petalPosition.up(i));
-            placeFallenLeavesBlock(generator, petalPosition.down(i));
+            placeFallenLeavesBlock(context, petalPosition.above(i));
+            placeFallenLeavesBlock(context, petalPosition.below(i));
         }
     }
 
-    private void placeFallenLeavesBlock(Generator generator, BlockPos fallenLeavesPosition) {
-        TestableWorld world = generator.getWorld();
+    private void placeFallenLeavesBlock(Context context, BlockPos fallenLeavesPosition) {
+        LevelSimulatedReader world = context.level();
 
-        if ((world instanceof StructureWorldAccess) && areLeavesBlockPlantable(generator, fallenLeavesPosition)) {
-            BlockPos leavesPosition = generator.getLeavesPositions().get(0);
-            Block leavesBlock = ((StructureWorldAccess) world).getBlockState(leavesPosition).getBlock();
+        if ((world instanceof WorldGenLevel) && areLeavesBlockPlantable(context, fallenLeavesPosition)) {
+            BlockPos leavesPosition = context.leaves().get(0);
+            Block leavesBlock = ((WorldGenLevel) world).getBlockState(leavesPosition).getBlock();
 
-            if (!generator.isAir(leavesPosition)) {
-                generator.replace(fallenLeavesPosition, leavesBlock.getDefaultState().with(LeavesBlock.PERSISTENT, true));
+            if (!context.isAir(leavesPosition)) {
+                context.setBlock(fallenLeavesPosition, leavesBlock.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
             }
         }
     }
 
-    private boolean areLeavesBlockPlantable(Generator generator, BlockPos leavesPosition) {
-        BlockPos groundPosition = leavesPosition.down();
-        boolean isGroundSoil = Feature.isSoil(generator.getWorld(), groundPosition);
-        boolean isLeavesPositionAir = generator.isAir(leavesPosition);
-        boolean isAboveBlockPositionAir = generator.isAir(leavesPosition.up());
+    private boolean areLeavesBlockPlantable(Context context, BlockPos leavesPosition) {
+        BlockPos groundPosition = leavesPosition.below();
+        boolean isGroundSoil = Feature.isGrassOrDirt(context.level(), groundPosition);
+        boolean isLeavesPositionAir = context.isAir(leavesPosition);
+        boolean isAboveBlockPositionAir = context.isAir(leavesPosition.above());
 
         return isGroundSoil && isLeavesPositionAir && isAboveBlockPositionAir;
     }

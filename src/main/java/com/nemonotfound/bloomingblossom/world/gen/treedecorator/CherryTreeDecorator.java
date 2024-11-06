@@ -1,15 +1,16 @@
 package com.nemonotfound.bloomingblossom.world.gen.treedecorator;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.treedecorator.TreeDecorator;
-import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
-import static net.minecraft.state.property.Properties.FLOWER_AMOUNT;
+import static net.minecraft.world.level.block.state.properties.BlockStateProperties.FLOWER_AMOUNT;
 
 public class CherryTreeDecorator extends TreeDecorator {
 
@@ -17,52 +18,52 @@ public class CherryTreeDecorator extends TreeDecorator {
     public static final MapCodec<CherryTreeDecorator> CODEC = MapCodec.unit(() -> INSTANCE);
 
     @Override
-    protected TreeDecoratorType<?> getType() {
+    protected @NotNull TreeDecoratorType<?> type() {
         return ModTreeDecoratorType.CHERRY_TREE_DECORATOR;
     }
 
     @Override
-    public void generate(Generator generator) {
-        BlockPos logPosition = generator.getLogPositions().get(0);
-        generateRandomFLowers(generator, logPosition, 80, 0, 2);
-        generateRandomFLowers(generator, logPosition, 50, 2, 4);
-        generateRandomFLowers(generator, logPosition, 40, 4, 5);
+    public void place(Context context) {
+        BlockPos logPosition = context.logs().get(0);
+        generateRandomFLowers(context, logPosition, 80, 0, 2);
+        generateRandomFLowers(context, logPosition, 50, 2, 4);
+        generateRandomFLowers(context, logPosition, 40, 4, 5);
     }
 
-    private void generateRandomFLowers(Generator generator, BlockPos logPosition, int probability, int from, int to) {
+    private void generateRandomFLowers(Context genercontexttor, BlockPos logPosition, int probability, int from, int to) {
         Random random = new Random();
 
         for (int i = from; i < to; i++) {
             for (int j = from; j < to; j++) {
-                generateFlowersByProbability(random, probability, generator, logPosition, to - i + from, j + 1);
-                generateFlowersByProbability(random, probability, generator, logPosition, to - i + from, -j - 1);
-                generateFlowersByProbability(random, probability, generator, logPosition, -to + i - from, j + 1);
-                generateFlowersByProbability(random, probability, generator, logPosition, -to + i - from, -j - 1);
+                generateFlowersByProbability(random, probability, genercontexttor, logPosition, to - i + from, j + 1);
+                generateFlowersByProbability(random, probability, genercontexttor, logPosition, to - i + from, -j - 1);
+                generateFlowersByProbability(random, probability, genercontexttor, logPosition, -to + i - from, j + 1);
+                generateFlowersByProbability(random, probability, genercontexttor, logPosition, -to + i - from, -j - 1);
 
-                generateFlowersByProbability(random, probability, generator, logPosition, i + 1, 0);
-                generateFlowersByProbability(random, probability, generator, logPosition, -i - 1, 0);
-                generateFlowersByProbability(random, probability, generator, logPosition, 0, i + 1);
-                generateFlowersByProbability(random, probability, generator, logPosition, 0, i - 1);
+                generateFlowersByProbability(random, probability, genercontexttor, logPosition, i + 1, 0);
+                generateFlowersByProbability(random, probability, genercontexttor, logPosition, -i - 1, 0);
+                generateFlowersByProbability(random, probability, genercontexttor, logPosition, 0, i + 1);
+                generateFlowersByProbability(random, probability, genercontexttor, logPosition, 0, i - 1);
             }
         }
     }
 
-    private void generateFlowersByProbability(Random random, int probability, Generator generator, BlockPos logPosition, int i, int j) {
+    private void generateFlowersByProbability(Random random, int probability, Context context, BlockPos logPosition, int i, int j) {
         int randomNumber = random.nextInt(100 - 1 + 1) + 1;
         if (randomNumber < probability) {
-            putFlowersUpAndDown(generator, logPosition.north(i).east(j).up(), random);
+            putFlowersUpAndDown(context, logPosition.north(i).east(j).above(), random);
         }
     }
 
-    private void putFlowersUpAndDown(Generator generator, BlockPos petalPosition, Random random) {
+    private void putFlowersUpAndDown(Context context, BlockPos petalPosition, Random random) {
         for (int i = 0; i < 3; i++) {
-            putFlowers(generator, petalPosition.up(i), random);
-            putFlowers(generator, petalPosition.down(i), random);
+            putFlowers(context, petalPosition.above(i), random);
+            putFlowers(context, petalPosition.below(i), random);
         }
     }
 
-    private void putFlowers(Generator generator, BlockPos petalPosition, Random random) {
-        if (isPetalPlantable(generator, petalPosition)) {
+    private void putFlowers(Context context, BlockPos petalPosition, Random random) {
+        if (isPetalPlantable(context, petalPosition)) {
             int randomNumber = random.nextInt(100 - 1 + 1) + 1;
             int petalCount = 1;
 
@@ -74,14 +75,14 @@ public class CherryTreeDecorator extends TreeDecorator {
                 petalCount = 2;
             }
 
-            generator.replace(petalPosition, Blocks.PINK_PETALS.getDefaultState().with(FLOWER_AMOUNT, petalCount));
+            context.setBlock(petalPosition, Blocks.PINK_PETALS.defaultBlockState().setValue(FLOWER_AMOUNT, petalCount));
         }
     }
 
-    private boolean isPetalPlantable(Generator generator, BlockPos petalPosition) {
-        BlockPos petalGroundPosition = petalPosition.down();
-        boolean isGroundSoil = Feature.isSoil(generator.getWorld(), petalGroundPosition);
-        boolean isPetalPositionAir = generator.isAir(petalPosition);
+    private boolean isPetalPlantable(Context context, BlockPos petalPosition) {
+        BlockPos petalGroundPosition = petalPosition.below();
+        boolean isGroundSoil = Feature.isGrassOrDirt(context.level(), petalGroundPosition);
+        boolean isPetalPositionAir = context.isAir(petalPosition);
 
         return isGroundSoil && isPetalPositionAir;
     }

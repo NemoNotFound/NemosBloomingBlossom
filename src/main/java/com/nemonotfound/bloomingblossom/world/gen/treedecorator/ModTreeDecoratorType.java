@@ -1,11 +1,11 @@
 package com.nemonotfound.bloomingblossom.world.gen.treedecorator;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.treedecorator.TreeDecorator;
-import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 
 import static com.nemonotfound.bloomingblossom.NemosBloomingBlossom.MOD_ID;
 import static com.nemonotfound.bloomingblossom.NemosBloomingBlossom.log;
@@ -20,6 +20,6 @@ public class ModTreeDecoratorType {
     }
 
     public static <P extends TreeDecorator> TreeDecoratorType<P> register(String path, MapCodec<P> codec) {
-        return Registry.register(Registries.TREE_DECORATOR_TYPE, Identifier.of(MOD_ID, path), new TreeDecoratorType<>(codec));
+        return Registry.register(BuiltInRegistries.TREE_DECORATOR_TYPE, ResourceLocation.fromNamespaceAndPath(MOD_ID, path), new TreeDecoratorType<>(codec));
     }
 }
