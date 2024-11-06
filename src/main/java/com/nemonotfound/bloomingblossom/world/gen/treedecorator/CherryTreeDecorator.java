@@ -30,20 +30,20 @@ public class CherryTreeDecorator extends TreeDecorator {
         generateRandomFLowers(context, logPosition, 40, 4, 5);
     }
 
-    private void generateRandomFLowers(Context genercontexttor, BlockPos logPosition, int probability, int from, int to) {
+    private void generateRandomFLowers(Context context, BlockPos logPosition, int probability, int from, int to) {
         Random random = new Random();
 
         for (int i = from; i < to; i++) {
             for (int j = from; j < to; j++) {
-                generateFlowersByProbability(random, probability, genercontexttor, logPosition, to - i + from, j + 1);
-                generateFlowersByProbability(random, probability, genercontexttor, logPosition, to - i + from, -j - 1);
-                generateFlowersByProbability(random, probability, genercontexttor, logPosition, -to + i - from, j + 1);
-                generateFlowersByProbability(random, probability, genercontexttor, logPosition, -to + i - from, -j - 1);
+                generateFlowersByProbability(random, probability, context, logPosition, to - i + from, j + 1);
+                generateFlowersByProbability(random, probability, context, logPosition, to - i + from, -j - 1);
+                generateFlowersByProbability(random, probability, context, logPosition, -to + i - from, j + 1);
+                generateFlowersByProbability(random, probability, context, logPosition, -to + i - from, -j - 1);
 
-                generateFlowersByProbability(random, probability, genercontexttor, logPosition, i + 1, 0);
-                generateFlowersByProbability(random, probability, genercontexttor, logPosition, -i - 1, 0);
-                generateFlowersByProbability(random, probability, genercontexttor, logPosition, 0, i + 1);
-                generateFlowersByProbability(random, probability, genercontexttor, logPosition, 0, i - 1);
+                generateFlowersByProbability(random, probability, context, logPosition, i + 1, 0);
+                generateFlowersByProbability(random, probability, context, logPosition, -i - 1, 0);
+                generateFlowersByProbability(random, probability, context, logPosition, 0, i + 1);
+                generateFlowersByProbability(random, probability, context, logPosition, 0, i - 1);
             }
         }
     }
