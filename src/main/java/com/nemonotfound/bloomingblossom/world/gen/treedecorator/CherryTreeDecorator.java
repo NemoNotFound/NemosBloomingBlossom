@@ -24,10 +24,12 @@ public class CherryTreeDecorator extends TreeDecorator {
 
     @Override
     public void place(Context context) {
-        BlockPos logPosition = context.logs().get(0);
-        generateRandomFLowers(context, logPosition, 80, 0, 2);
-        generateRandomFLowers(context, logPosition, 50, 2, 4);
-        generateRandomFLowers(context, logPosition, 40, 4, 5);
+        if (!context.logs().isEmpty()) {
+            BlockPos logPosition = context.logs().get(0);
+            generateRandomFLowers(context, logPosition, 80, 0, 2);
+            generateRandomFLowers(context, logPosition, 50, 2, 4);
+            generateRandomFLowers(context, logPosition, 40, 4, 5);
+        }
     }
 
     private void generateRandomFLowers(Context context, BlockPos logPosition, int probability, int from, int to) {
