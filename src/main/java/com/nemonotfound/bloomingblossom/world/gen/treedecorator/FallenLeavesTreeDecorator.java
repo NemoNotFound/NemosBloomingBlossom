@@ -25,8 +25,10 @@ public class FallenLeavesTreeDecorator extends TreeDecorator {
 
     @Override
     public void place(Context context) {
-        BlockPos logPosition = context.logs().get(0);
-        generateRandomLeavesBlock(context, logPosition);
+        if (!context.logs().isEmpty()) {
+            BlockPos logPosition = context.logs().get(0);
+            generateRandomLeavesBlock(context, logPosition);
+        }
     }
 
     private void generateRandomLeavesBlock(Context context, BlockPos logPosition) {
