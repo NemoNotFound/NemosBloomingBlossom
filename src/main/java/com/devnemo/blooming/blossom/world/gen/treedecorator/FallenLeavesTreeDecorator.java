@@ -1,4 +1,4 @@
-package com.nemonotfound.blooming.blossom.world.gen.treedecorator;
+package com.devnemo.blooming.blossom.world.gen.treedecorator;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;

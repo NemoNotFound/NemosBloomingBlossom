@@ -15,7 +15,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.nemonotfound.blooming.blossom.NemosBloomingBlossom"
+			"com.devnemo.blooming.blossom.NemosBloomingBlossom"
 		]
 	},
 	"depends": {
