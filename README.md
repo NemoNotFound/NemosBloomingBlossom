@@ -2,11 +2,12 @@
 
 ## Description
 
-Nemo's Blooming Blossom generates pink petals around cherry trees as they grow,     
-and generates more petals when bone meal is used on grass in a cherry biome.        
+**Nemo's Blooming Blossom** aims to improve vegetation and tree growth:
 
-It also generates leaves around oak, birch and dark oak trees.
-Flowers can be obtained by using bone meal on them as well.
+- Pink petals are generated around **cherry trees** as they grow.
+- More petals are generated when **bone meal** is used on grass within a **cherry biome**.
+- **Oak, birch, and dark oak trees** generate fallen leaves around them as they grow.
+- **Flowers** can be obtained by using **bone meal** on flowers _(does not apply to wither roses)_.
 
 # Downloads
 
