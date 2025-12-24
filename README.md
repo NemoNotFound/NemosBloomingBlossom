@@ -9,6 +9,8 @@
 - **Oak, birch, and dark oak trees** generate fallen leaves around them as they grow.
 - **Flowers** can be obtained by using **bone meal** on flowers _(does not apply to wither roses)_.
 
+For detailed information, check out the [wiki](https://wiki.nemonotfound.com/projects/minecraft-mods/nemos-blooming-blossom/general).
+
 # Downloads
 
 - [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-blooming-blossom)
