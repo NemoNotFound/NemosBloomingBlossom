@@ -3,7 +3,7 @@ package com.devnemo.blooming.blossom.world.gen.treedecorator;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 
@@ -20,6 +20,6 @@ public class ModTreeDecoratorType {
     }
 
     public static <P extends TreeDecorator> TreeDecoratorType<P> register(String path, MapCodec<P> codec) {
-        return Registry.register(BuiltInRegistries.TREE_DECORATOR_TYPE, ResourceLocation.fromNamespaceAndPath(MOD_ID, path), new TreeDecoratorType<>(codec));
+        return Registry.register(BuiltInRegistries.TREE_DECORATOR_TYPE, Identifier.fromNamespaceAndPath(MOD_ID, path), new TreeDecoratorType<>(codec));
     }
 }
