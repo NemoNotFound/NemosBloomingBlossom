@@ -1,4 +1,4 @@
-package com.devnemo.blooming.blossom.world.gen.treedecorator;
+package com.nemonotfound.blooming.blossom.world.gen.treedecorator;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Registry;
@@ -7,8 +7,8 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 
-import static com.devnemo.blooming.blossom.NemosBloomingBlossom.MOD_ID;
-import static com.devnemo.blooming.blossom.NemosBloomingBlossom.log;
+import static com.nemonotfound.blooming.blossom.NemosBloomingBlossom.MOD_ID;
+import static com.nemonotfound.blooming.blossom.NemosBloomingBlossom.log;
 
 public class ModTreeDecoratorType {
 

@@ -1,4 +1,4 @@
-package com.devnemo.blooming.blossom.mixin;
+package com.nemonotfound.blooming.blossom.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;

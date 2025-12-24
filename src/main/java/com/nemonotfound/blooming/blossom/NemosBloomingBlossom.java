@@ -1,6 +1,6 @@
-package com.devnemo.blooming.blossom;
+package com.nemonotfound.blooming.blossom;
 
-import com.devnemo.blooming.blossom.world.gen.treedecorator.ModTreeDecoratorType;
+import com.nemonotfound.blooming.blossom.world.gen.treedecorator.ModTreeDecoratorType;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
