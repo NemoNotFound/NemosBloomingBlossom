@@ -2,16 +2,17 @@ package com.nemonotfound.blooming.blossom.world.gen.treedecorator;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
+
+import static net.minecraft.tags.BlockTags.DIRT;
+import static net.minecraft.tags.BlockTags.GRASS_BLOCKS;
 
 public class FallenLeavesTreeDecorator extends TreeDecorator {
 
@@ -25,7 +26,7 @@ public class FallenLeavesTreeDecorator extends TreeDecorator {
 
     @Override
     public void place(Context context) {
-        BlockPos logPosition = context.logs().get(0);
+        BlockPos logPosition = context.logs().getFirst();
         generateRandomLeavesBlock(context, logPosition);
     }
 
@@ -66,11 +67,11 @@ public class FallenLeavesTreeDecorator extends TreeDecorator {
     }
 
     private void placeFallenLeavesBlock(Context context, BlockPos fallenLeavesPosition) {
-        LevelSimulatedReader world = context.level();
+        WorldGenLevel world = context.level();
 
         if ((world instanceof WorldGenLevel) && areLeavesBlockPlantable(context, fallenLeavesPosition)) {
-            BlockPos leavesPosition = context.leaves().get(0);
-            Block leavesBlock = ((WorldGenLevel) world).getBlockState(leavesPosition).getBlock();
+            BlockPos leavesPosition = context.leaves().getFirst();
+            Block leavesBlock = world.getBlockState(leavesPosition).getBlock();
 
             if (!context.isAir(leavesPosition)) {
                 context.setBlock(fallenLeavesPosition, leavesBlock.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
@@ -80,7 +81,7 @@ public class FallenLeavesTreeDecorator extends TreeDecorator {
 
     private boolean areLeavesBlockPlantable(Context context, BlockPos leavesPosition) {
         BlockPos groundPosition = leavesPosition.below();
-        boolean isGroundSoil = Feature.isGrassOrDirt(context.level(), groundPosition);
+        boolean isGroundSoil = context.level().isStateAtPosition(groundPosition, (state) -> state.is(GRASS_BLOCKS) || state.is(DIRT));
         boolean isLeavesPositionAir = context.isAir(leavesPosition);
         boolean isAboveBlockPositionAir = context.isAir(leavesPosition.above());
 

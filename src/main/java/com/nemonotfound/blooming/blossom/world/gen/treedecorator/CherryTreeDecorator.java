@@ -3,13 +3,14 @@ package com.nemonotfound.blooming.blossom.world.gen.treedecorator;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
+import static net.minecraft.tags.BlockTags.DIRT;
+import static net.minecraft.tags.BlockTags.GRASS_BLOCKS;
 import static net.minecraft.world.level.block.state.properties.BlockStateProperties.FLOWER_AMOUNT;
 
 public class CherryTreeDecorator extends TreeDecorator {
@@ -24,7 +25,7 @@ public class CherryTreeDecorator extends TreeDecorator {
 
     @Override
     public void place(Context context) {
-        BlockPos logPosition = context.logs().get(0);
+        BlockPos logPosition = context.logs().getFirst();
         generateRandomFLowers(context, logPosition, 80, 0, 2);
         generateRandomFLowers(context, logPosition, 50, 2, 4);
         generateRandomFLowers(context, logPosition, 40, 4, 5);
@@ -81,7 +82,7 @@ public class CherryTreeDecorator extends TreeDecorator {
 
     private boolean isPetalPlantable(Context context, BlockPos petalPosition) {
         BlockPos petalGroundPosition = petalPosition.below();
-        boolean isGroundSoil = Feature.isGrassOrDirt(context.level(), petalGroundPosition);
+        boolean isGroundSoil = context.level().isStateAtPosition(petalGroundPosition, (state) -> state.is(GRASS_BLOCKS) || state.is(DIRT));
         boolean isPetalPositionAir = context.isAir(petalPosition);
 
         return isGroundSoil && isPetalPositionAir;
