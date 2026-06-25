@@ -16,6 +16,9 @@
 	"entrypoints": {
 		"main": [
 			"com.nemonotfound.blooming.blossom.NemosBloomingBlossom"
+		],
+		"fabric-datagen": [
+          "com.nemonotfound.blooming.blossom.datagen.BloomingBlossomDataGenerator"
 		]
 	},
 	"depends": {

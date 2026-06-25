@@ -14,6 +14,19 @@ base {
 	archivesName = project.archives_base_name
 }
 
+loom {
+	runs {
+		datagen {
+			inherit server
+			name "Data Generation"
+			vmArg "-Dfabric-api.datagen"
+			vmArg "-Dfabric-api.datagen.modid=nemos-blooming-blossom"
+			vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+			runDir "build/datagen"
+		}
+	}
+}
+
 repositories {
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because

@@ -40,4 +40,6 @@ replay_*.log
 *.jfr
 
 generated
+!src/main/generated/
+!src/main/generated/**
 remappedSrc
