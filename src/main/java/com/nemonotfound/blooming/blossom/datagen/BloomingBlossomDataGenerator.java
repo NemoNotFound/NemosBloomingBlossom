@@ -9,6 +9,6 @@ public class BloomingBlossomDataGenerator implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
-        pack.addProvider(BloomingBlossomConfiguredFeatureProvider::new);
+        pack.addProvider(BloomingBlossomFeatureProvider::new);
     }
 }

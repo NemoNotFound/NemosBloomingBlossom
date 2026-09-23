@@ -13,12 +13,12 @@ import org.spongepowered.asm.mixin.injection.At;
 public class GrassBlockMixin {
 
     @ModifyExpressionValue(
-            method = "performBonemeal",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/util/RandomSource;nextInt(I)I", ordinal = 5)
+            method = "placeBonemealEffect",
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/util/RandomSource;nextFloat()F", ordinal = 1)
     )
-    private int nextInt(int original, @Local(argsOnly = true) BlockPos blockPos, @Local(argsOnly = true) ServerLevel world) {
-        if (world.getBiome(blockPos).is(Biomes.CHERRY_GROVE)) {
-            return original > 2 ? 0 : original;
+    private static float increaseFlowerChance(float original, @Local(argsOnly = true, name = "testPos") BlockPos testPos, @Local(argsOnly = true, name = "level") ServerLevel level) {
+        if (level.getBiome(testPos).is(Biomes.CHERRY_GROVE)) {
+            return original >= 0.375F ? 0.0F : original;
         } else {
             return original;
         }
