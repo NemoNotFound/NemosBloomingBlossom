@@ -107,6 +107,7 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
 	mainFile.changelog = file('changelog.md')
 	mainFile.displayName = findProperty('mod_name') + ' ' + findProperty('version')
 	mainFile.releaseType = 'release'
+	mainFile.addGameVersion(findProperty('minecraft_version'))
 }
 
 modrinth {
